@@ -440,8 +440,8 @@ dialog.sheet[open] { animation: sheetUp 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); }
             <p class="coach" id="coach">Tap StoryHug to run the live demo</p>
             <div class="hdock">
               <a class="app" href="#contact" aria-label="Contact" title="Contact"><span class="ic ic-contact"><svg class="i"><use href="#i-call"/></svg></span></a>
-              <a class="app" href="https://www.linkedin.com/in/naveen-reddy-189027239" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><span class="ic ic-li"><b>in</b></span></a>
-              <a class="app" href="https://github.com/Naveenprakash21" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><span class="ic ic-gh"><svg class="i"><use href="#i-branch"/></svg></span></a>
+              <a class="app" href="#work" aria-label="Work" title="Work"><span class="ic ic-work"><svg class="i"><use href="#i-grid"/></svg></span></a>
+              <a class="app" href="#skills" aria-label="Skills" title="Skills"><span class="ic ic-skills"><svg class="i"><use href="#i-code"/></svg></span></a>
             </div>
             <div class="search only-android" aria-hidden="true"><svg class="i"><use href="#i-search"/></svg>Search</div>
           </div>
@@ -455,8 +455,8 @@ dialog.sheet[open] { animation: sheetUp 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); }
             <p class="ph-title">A story for tonight, with your child's name in it.</p>
             <p class="ph-text">Pick how the day felt. We play a short story from India's wisdom tales.</p>
             <div class="ph-push">
-              <button class="ph-btn" id="b-guest" type="button">Start without an account</button>
-              <p class="ph-small">5 stories free</p>
+              <button class="ph-btn" id="b-guest" type="button">Start the demo</button>
+              <p class="ph-small">A sample story for a sample child</p>
             </div>
           </div>
 
@@ -820,8 +820,7 @@ dialog.sheet[open] { animation: sheetUp 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); }
 
   $('b-guest').addEventListener('click', async function () {
     if (busy) return; setBusy(true);
-    await call('POST', '/auth/guest', '201', '{ isGuest: true, accessToken: "…" }', ['Guest account, no email or password', '5 stories open; signing up later keeps the child'], ['api', 'db']);
-    await call('POST', '/children', '200', '{ name: "Asha", ageGroup: "3-4" }', ['Child saved for this guest'], ['api', 'db']);
+    await call('POST', '/children', '200', '{ name: "Asha", ageGroup: "3-4" }', ['Child profile saved'], ['api', 'db']);
     setApp('tonight'); setBusy(false);
   });
 
